@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
 
   # GET /chats/new
   def new
-    @chat = Chat.new
+    @chat = @room.Chat.new
   end
 
   # GET /chats/1/edit
@@ -21,7 +21,7 @@ class ChatsController < ApplicationController
 
   # POST /chats or /chats.json
   def create
-    @chat = Chat.new(chat_params)
+    @chat = @room.Chat.new(chat_params)
 
     respond_to do |format|
       if @chat.save
@@ -58,8 +58,12 @@ class ChatsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_room
+      @room = @room.find_by(id: params[:room_id])
+    end
+    
     def set_chat
-      @chat = Chat.find(params[:id])
+      @chat = @room.Chat.find_by(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
