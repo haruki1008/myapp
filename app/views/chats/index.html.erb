@@ -18,9 +18,8 @@
         <td><%= chat.name %></td>
         <td><%= chat.content %></td>
         <td><%= chat.image %></td>
-        <td><%= link_to 'Show', chat %></td>
-        <td><%= link_to 'Edit', edit_chat_path(chat) %></td>
-        <td><%= link_to 'Destroy', chat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
+        
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Chat', new_chat_path %>
+<%= link_to 'New Chat', new_room_chat_path %>

@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2021_08_19_111050) do
     t.string "name"
     t.string "content"
     t.string "image"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_chats_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|

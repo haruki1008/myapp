@@ -4,6 +4,7 @@ class CreateChats < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :content
       t.string :image
+      t.references :room, foreign_key: true
 
       t.timestamps
     end

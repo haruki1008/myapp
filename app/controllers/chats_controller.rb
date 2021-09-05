@@ -1,9 +1,10 @@
 class ChatsController < ApplicationController
+  before_action :set_room
   before_action :set_chat, only: %i[ show edit update destroy ]
 
   # GET /chats or /chats.json
   def index
-    @chats = Chat.all
+    @chats = @room.chats.all
   end
 
   # GET /chats/1 or /chats/1.json
@@ -12,7 +13,7 @@ class ChatsController < ApplicationController
 
   # GET /chats/new
   def new
-    @chat = @room.Chat.new
+    @chat = @room.chats.new
   end
 
   # GET /chats/1/edit
@@ -21,11 +22,11 @@ class ChatsController < ApplicationController
 
   # POST /chats or /chats.json
   def create
-    @chat = @room.Chat.new(chat_params)
+    @chat = @room.chats.new(chat_params)
 
     respond_to do |format|
       if @chat.save
-        format.html { redirect_to @chat, notice: "Chat was successfully created." }
+        format.html { redirect_to room_chats_path, notice: "Chat was successfully created." }
         format.json { render :show, status: :created, location: @chat }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -59,7 +60,8 @@ class ChatsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = @room.find_by(id: params[:room_id])
+      @room = Room.find_by(id: params[:room_id])
+      
     end
     
     def set_chat
