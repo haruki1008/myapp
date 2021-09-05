@@ -1,32 +1,19 @@
-<%= form_with(model: chat,url: room_chats_path,local: true) do |form| %>
+<%= form_with(model: chat, url: [room, chat], remote: true, html: {name: "chatForm", class: "p-2"} ) do |form| %>
   <% if chat.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
-
       <ul>
-      <% chat.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% chat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_area :content, rows: 4 %>
   </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="actions">
+  <div class="actions text-right">
+    <%= link_to "Close", new_room_chat_path(room), class: "btn btn-secondary", remote: true %>
     <%= form.submit %>
   </div>
 <% end %>
