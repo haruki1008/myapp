@@ -1,10 +1,10 @@
-<div class="card mt-2 chat-card <%=" text-muted bg-light" if chat.done %>"
-  data-model_name="<%= Todo.model_name.singular %>"
+<div class="card mt-2 chat-card"
+  data-model_name="<%= Chat.model_name.singular %>"
   data-room_id="<%= chat.room.id %>"
   data-id="<%= chat.id %>">
   <div class="card-body pr-1">
     <div class="card-text pr-4">
-      <%= chat.done ? tag.del(){simple_format chat.content} : (simple_format chat.content) %>
+      <%= chat.content %>
     </div>
     <div class="btn-group position-absolute" style="top: 10px; right: 4px">
       <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,13 +12,7 @@
       </button>
       <div class="dropdown-menu dropdown-menu-right text-middle">
         <%= form_with(model: chat, url: [chat.room, chat], remote: true) do |form| %>
-          <% if chat.done %>
-            <%= form.hidden_field :done, value: false, readonly: true %>
-            <%= form.submit "未完了", class: "dropdown-item text-success" %>
-          <% else %>
-            <%= form.hidden_field :done, value: true, readonly: true %>
-            <%= form.submit "完了！", class: "dropdown-item text-success" %>
-          <% end %>
+          
         <% end %>
         <div class="dropdown-divider"></div>
         <%= link_to "編集", edit_room_chat_path(chat.room, chat), class: "dropdown-item", remote: true %>
