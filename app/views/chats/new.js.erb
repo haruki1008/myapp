@@ -1,0 +1,7 @@
+if ($('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form[name="chatForm"]').length) {
+    $('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form[name="chatForm"]').eq(0).toggle()
+    $('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form [name="chat[content]"]').eq(0).focus();
+} else {
+    $('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('.room-header').after("<%= j(render 'form', room: @room, chat: @chat) %>")
+    $('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form [name="chat[content]"]').eq(0).focus();
+}
