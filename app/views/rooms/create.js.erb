@@ -1,0 +1,13 @@
+$("#roomModal").modal("hide");
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+
+// Rails @status => true 画面の書き換え : false モーダルを再度表示
+<% if @status %>
+$("#roomsIndex").append("<%= j(render @room) %>");
+
+<% else %>
+$("#modalArea").html("<%= j(render 'rooms/form', room: @room) %>")
+$("#modalArea").find(".modal").modal('show')
+<% end %>

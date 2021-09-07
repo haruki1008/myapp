@@ -1,0 +1,14 @@
+// モーダルを閉じる処理
+$("#roomModal").modal("hide");
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+
+// Rails @status => true 画面の書き換え : false モーダルを再度表示
+<% if @status %>
+$('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').replaceWith("<%= j(render @room) %>");
+
+<% else %>
+$("#modalArea").html("<%= j(render 'form', room: @room) %>")
+$("#modalArea").find(".modal").modal('show')
+<% end %>
