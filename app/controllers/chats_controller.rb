@@ -2,6 +2,16 @@ class ChatsController < ApplicationController
   before_action :set_room
   before_action :set_chat, only: [:show, :edit, :update, :destroy]
   
+  # GET /chats or /chats.json
+  def index
+    @chats = @room.chats.all
+  end
+  
+  # GET /chats/1 or /chats/1.json
+  def show
+  end
+
+  
 
   # GET /chats/new
   def new
