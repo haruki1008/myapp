@@ -46,8 +46,9 @@ class RoomsController < ApplicationController
   private
    
     def set_room
-     @room = Room.find_by( params[:id])
-     redirect_to(goals_url, alert: "ERROR!!") if @room.blank?
+     @room = Room.find_by(id: params[:id])
+
+     redirect_to(rooms_url, alert: "ERROR!!") if @room.blank?
     end
 
     

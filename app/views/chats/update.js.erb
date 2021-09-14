@@ -5,7 +5,7 @@ $('.modal-backdrop').remove();
 
 // Rails @status => true 画面の書き換え : false モーダルを再度表示
 <% if @status %>
-$('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find(".chat-cards").html("<%= j(render partial: 'chats/chat', collection: @room.chat, as: :chat) %>");
+$('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find(".chat-cards").html("<%= j(render partial: 'chats/chat', collection: @room.chats, as: :chat) %>");
 
 <% else %>
 $("#modalArea").html("<%= j(render 'modal_form', room: @room, chat: @chat) %>")
