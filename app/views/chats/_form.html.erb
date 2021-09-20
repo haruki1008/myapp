@@ -15,6 +15,9 @@
           </div>
   <div class="field">
     <%= form.text_area :content, rows: 4 %>
+    <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
+    
+    
   </div>
   <div class="actions text-right">
     <%= link_to "Close", new_room_chat_path(room), class: "btn btn-secondary", remote: true %>
