@@ -20,9 +20,14 @@
             </div>
           <% end %>
           <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    </div>
+          <div class="field">
             
             <%= form.label :content %>
             <%= form.text_area :content, rows: 5 %>
+             <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
           </div>
         </div>
         <div class="modal-footer actions">
