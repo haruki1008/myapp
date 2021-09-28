@@ -10,12 +10,12 @@
     </div>
   <% end %>
   
-    <input placeholder="名前" class="field">
-    <%= :name %>
-    </input>
     <div class="field">
-    <%= form.text_area :content, rows: 4 %>
-    <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
+     <%= form.text_field :name, :placeholder => "名前"  %>
+     </div>
+     <div class="field">
+     <%= form.text_area :content, :placeholder => "コメント"  %>
+     <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
     </div>
     
     
