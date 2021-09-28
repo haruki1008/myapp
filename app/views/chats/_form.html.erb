@@ -14,14 +14,14 @@
      <%= form.text_field :name, :placeholder => "名前"  %>
      </div>
      <div class="field">
-     <%= form.text_area :content, :placeholder => "コメント"  %>
+     <%= form.text_area :content, :placeholder => "コメント", :size =>"60x10" %>
      <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
     </div>
     
     
   </div>
   <div class="actions text-right">
-    <%= link_to "Close", new_room_chat_path(room), class: "btn btn-secondary", remote: true %>
-    <%= form.submit %>
+    <%= link_to "閉じる", new_room_chat_path(room), class: "btn btn-secondary", remote: true %>
+    <%= form.submit "投稿する" %>
   </div>
 <% end %>
