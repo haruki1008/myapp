@@ -1,13 +1,13 @@
-<div class="card bg-light d-inline-block text-wrap h-100 mx-1 room-card"
+<div class="card bg-light d-inline-block text-wrap float-left h-25 w-75 my-1 room-card"
   data-model_name="<%= Room.model_name.singular %>"
   data-id="<%= room.id %>">
   <div class="d-flex flex-column h-100" style="width: 25rem; min-width: 25rem;">
-    <div class="font-weight-bold px-4 py-2 room-header">
-      <div class="pr-5">
+    <div class="font-weight-bold px-4 pt-2 room-header">
+      <h2 class="text-wrap roomtitle-name">
         <%= room.title %>
-      </div>
+      </h2>
       <div class="text-right position-absolute" style="top: 4px; right: 4px">
-        <%= link_to(new_room_chat_path(room), title: "New Chat", class: "btn px-0", remote: true) do %><i class="fas fa-plus align-middle"></i><% end %>
+        <%= link_to(new_room_chat_path(room), title: "New Chat", class: "btn px-0", remote: true) do %>コメントする<% end %>
         <div class="btn-group">
           <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v align-middle"></i>
