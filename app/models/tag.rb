@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-    belongs_to :goal
+    belongs_to :room
 end

@@ -53,6 +53,6 @@ class RoomsController < ApplicationController
 
     
     def room_params
-      params.require(:room).permit(:title)
+      params.require(:room).permit(:title, tag_ids: [])
     end
 end
