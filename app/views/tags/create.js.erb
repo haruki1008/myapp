@@ -6,7 +6,7 @@ $('.field input#tag_name').focus();
 <% if @status %>
 $("#modalArea")
   .find("#tagIndex")
-  .html('<%= j(render partial: "tags/tag", collection: tags.select(&:persisted?), as: :tag) %>')
+  .html('<%= j(render partial: "tags/tag", collection: Tag.select(&:persisted?), as: :tag) %>')
 
 <% else %>
 
