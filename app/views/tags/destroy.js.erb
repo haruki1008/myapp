@@ -2,4 +2,4 @@
 $('[data-model_name="tag"]').filter('[data-id="<%= @tag.id %>"]').remove();
 
 // すでに表示されているgoalsを書き換え
-$('#roomsIndex').html('<%= j(render partial: "rooms/room", collection: rooms, as: :room) %>')
+$('#roomsIndex').html('<%= j(render partial: "rooms/room", collection: Room, as: :room) %>')

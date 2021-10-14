@@ -5,7 +5,7 @@
 
 <% if @status %>
 // すでに表示されているgoalsを書き換え
-$('#roomsIndex').html('<%= j(render partial: "rooms/room", collection: rooms, as: :room) %>')
+$('#roomsIndex').html('<%= j(render partial: "rooms/room", collection: Room, as: :room) %>')
 
 // new用のモーダルを作成
 $("#modalArea").html("<%= j(render 'form', tag: Tag.new) %>")
