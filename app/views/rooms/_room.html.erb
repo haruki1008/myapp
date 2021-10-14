@@ -21,6 +21,9 @@
     </div>
     <div class="card-body px-2 pb-2 pt-0 overflow-auto chat-cards">
       <%= render partial: "chats/chat", collection: room.chats, as: :chat %>
+      <div>
+      <%= render partial: "rooms/tag", collection: room.tags, as: :tag %>
+      </div>
     </div>
   </div>
 </div>

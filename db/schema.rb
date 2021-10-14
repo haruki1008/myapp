@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_163715) do
+ActiveRecord::Schema.define(version: 2021_10_14_083845) do
 
   create_table "chats", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2021_09_22_163715) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_chats_on_room_id"
+  end
+
+  create_table "room_tags", force: :cascade do |t|
+    t.integer "room_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_tags_on_room_id"
+    t.index ["tag_id"], name: "index_room_tags_on_tag_id"
   end
 
   create_table "rooms", force: :cascade do |t|
