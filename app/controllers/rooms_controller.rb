@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
+  def show
+  end
 
 
   # GET /rooms/new
