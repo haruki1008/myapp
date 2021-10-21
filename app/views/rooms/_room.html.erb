@@ -7,8 +7,8 @@
         <%= room.title %>
       </h2>
       <div class="text-right position-absolute" style="top: 4px; right: 4px">
-        <%= link_to "コメントする", room, class: "btn px-0" %>
-        <div class="btn-group">
+         <%= link_to(new_room_chat_path(room), title: "New Chat", class: "btn px-0", remote: true) do %>コメント<% end %>
+         <%= link_to "コメントする", room, class: "btn px-0" %>
           <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v align-middle"></i>
           </button>

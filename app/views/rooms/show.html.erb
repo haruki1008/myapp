@@ -1,1 +1,4 @@
-<p>rooms show</p>
+<%= @room.title %>
+ <%= render partial: "chats/chat", collection: @room.chats, as: :chat %>
+  <%= link_to(new_room_chat_path(@room), title: "New Chat", class: "btn px-0", remote: true) %>
+ 

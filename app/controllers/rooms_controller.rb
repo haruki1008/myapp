@@ -6,8 +6,6 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  def show
-  end
 
 
   # GET /rooms/new
@@ -44,6 +42,11 @@ class RoomsController < ApplicationController
     @room.destroy
    
   end
+  
+  def show
+    @chat = @room.chats.new
+    
+end
 
   private
    

@@ -11,28 +11,20 @@
     <%= image_tag chat.image.url,size: '320x240' %>
 <% end %>
     </div>
+     <%= link_to(new_room_chat_path(chat.room), title: "New Chat", class: "btn px-0", remote: true) %>
     <div class="btn-group position-absolute" style="top: 10px; right: 4px">
       <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-ellipsis-v"></i>
       </button>
       <div class="dropdown-menu dropdown-menu-right text-middle">
-        <%= form_with(model: chat, url: [chat.room, chat], remote: true) do |form| %>
-          
-        <% end %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "編集", edit_room_chat_path(chat.room, chat), class: "dropdown-item", remote: true %>
-        <%= link_to "削除",
-            room_chat_path(chat.room, chat),
-            method: :delete,
-            class: "dropdown-item text-danger",
-            remote: true, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "編集", new_room_chat_path(chat.room), class: "dropdown-item", remote: true %>
+      <%= chat.id %>
+
+
       </div>
     </div>
     <div class="card-text">
-      <small class="text-muted">
-        
-        <%= chat.created_at.strftime('%Y/%m/%d %H:%M') %>
-      </small>
+      
     </div>
   </div>
 </div>
