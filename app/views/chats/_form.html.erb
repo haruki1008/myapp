@@ -1,46 +1,41 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="roomModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<%= form_with(model: chat, url: [room, chat], remote: true, html: {name: "chatForm", class: "p-2"} ) do |form| %>
-  <% if chat.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
-      <ul>
-        <% chat.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <%= form_with(model: chat, url: [room, chat], remote: true, class: "") do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="roomModal"><%= "#{params[:action].camelize} #{chat.model_name.human}" %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% if chat.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
+              <ul>
+                <% chat.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
     </div>
-  <% end %>
-  
-    <div class="field">
-     <%= form.text_field :name, :placeholder => "名前"  %>
-     
-     <%= form.text_area :content, :placeholder => "コメント" %>
-     <%= form.label "画像をアップロード" %><br><%= form.file_field :image %></br>
-     </div>
-    
-    
-    
-
-  <div class="actions text-right">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-    <%= link_to "閉じる", new_room_chat_path(room), class: "btn btn-secondary", remote: true %>
-    </button>
-    <button type="button" class="btn btn-primary">
-    <%= form.submit "投稿する" %>
-    </button>
-  </div>
-<% end %>
- </div>
-      
+          <div class="field">
+            
+            <%= form.label :content %>
+            <%= form.text_area :content, rows: 5 %>
+             <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
+          </div>
+          
+        </div>
+        <div class="modal-footer actions">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= form.submit %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

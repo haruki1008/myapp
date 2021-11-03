@@ -5,25 +5,15 @@
   <div class="card-body w-100 pr-1">
     
      <strong><%= chat.name %></strong>
-    <div class="card-text pr-4">
+    <div class="card-text pr-3">
       <%= chat.content %>
+      <div>
       <% if chat.image? %>
-    <%= image_tag chat.image.url,size: '320x240' %>
+    <%= image_tag chat.image.url, size: '320x240' %>
+    
 <% end %>
+</div>
     </div>
-     
-    <div class="btn-group position-absolute" style="top: 10px; right: 4px">
-      <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-ellipsis-v"></i>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right text-middle">
-      <%= link_to "編集", new_room_chat_path(chat.room), class: "dropdown-item", remote: true %>
-      </div>
-      </div>
-      
-      
-
-
       </div>
     </div>
     

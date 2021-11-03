@@ -7,22 +7,15 @@
         <%= room.title %>
       </h2>
       <div class="text-right position-absolute" style="top: 4px; right: 4px">
-         <%= link_to(new_room_chat_path(room), title: "New Chat", class: "btn px-0", remote: true) do %>コメント<% end %>
-         <%= link_to "コメントする", room, class: "btn px-0" %>
-         <div class="btn-group">
-          <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-ellipsis-v align-middle"></i>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right text-middle">
-            <%= link_to "Edit", edit_room_path(room), class: "dropdown-item", remote: true %>
-            <%= link_to "Delete", room, method: :delete, class: "dropdown-item text-danger", remote: true, data: { confirm: 'Are you sure?' } %>
-          </div>
-          </div>
-          <div><%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}/&text=ゲーム攻略 &hashtags=攻略,募集", title: 'Twitter', target: '_blank' %></div>
+       
+         <%= link_to "コメントする", room, class: "btn btn-link btn-outline-dark" %>
+            <div>
+            <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}/&text=ゲーム攻略 &hashtags=攻略,募集", title: 'Twitter', target: '_blank' %>
+            </div>
           </div>
           </div>
        
-      <div>
+      <div class=my-3>
          <%= render partial: "rooms/tag", collection: room.tags, as: :tag %>
       </div>
       
