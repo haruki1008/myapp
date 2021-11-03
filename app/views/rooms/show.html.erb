@@ -23,7 +23,9 @@ data-id="<%= @room.id %>">
 		<%= render partial: "chats/chat", collection: @room.chats, as: :chat %>
 		
 	</div>
-	<div class="field">
+	<button type="button" data-toggle="modal" data-target="#exampleModal">
+
 	 <%= link_to(new_room_chat_path(@room), title: "New Chat", class: "btn px-0 right", remote: true) do %>コメントする<% end %>
-	</div>
+
+</button>
 </div>
