@@ -23,9 +23,9 @@
            <div class="field">
      <%= form.text_field :name, :placeholder => "名前"  %>
            </div>
-           <textarea class="textarea-large" placeholder="コメント">
-     <%= chat.content %>
-     </textarea>
+           
+     <%= form.text_area :content, :placeholder => "コメント", class: "textarea-large" %>
+     
      <div class="field">
      <%= form.label "画像をアップロード" %><br><%= form.file_field :image %></br>
      </div>
