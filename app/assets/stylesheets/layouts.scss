@@ -20,3 +20,18 @@ footer {
     width: 100%;
     height: 170px;
 }
+.roomtitle-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-roomtitle-name {
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+ 
+    /*IE対策*/
+    line-height: 1.5em;
+    max-height: 4.5em;
+}
