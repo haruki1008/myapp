@@ -23,7 +23,7 @@ data-id="<%= @room.id %>">
 		<%= render partial: "chats/chat", collection: @room.chats, as: :chat %>
 		
 	</div>
-	 <%= link_to new_room_chat_path(@room), title: "New Chat", remote: true do %>
+	 <%= link_to new_room_chat_path(@room), title: "New Chat",class: "btn py-2 btn-outline-dark", remote: true do %>
 	
 
 
@@ -31,8 +31,6 @@ data-id="<%= @room.id %>">
 
 
 <% end %>
- <%= link_to 'New User',new_room_chat_path(@room), remote: true, class: "btn btn-lg, btn-primary" %>
-<%= link_to new_room_chat_path(@room), title: "New", class: "btn p-0 text-dark", remote: true do %>
-    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">ルーム作成</span>
-  <% end %>
+
+
 </div>

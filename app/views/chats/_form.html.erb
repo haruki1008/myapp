@@ -3,7 +3,7 @@
     <div class="modal-content">
       <%= form_with(model: chat, url: [room, chat], remote: true, class: "") do |form| %>
         <div class="modal-header">
-          <h5 class="modal-title" id="roomModal"><%= "#{params[:action].camelize} #{chat.model_name.human}" %></h5>
+          <h5 class="modal-title" id="roomModal">コメント</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -19,21 +19,21 @@
               </ul>
             </div>
           <% end %>
-          <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    </div>
-          <div class="field">
-            
-            <%= form.label :content %>
-            <%= form.text_area :content, rows: 5 %>
-             <%= form.label "画像をアップロード" %><br><%= form.file_field :image %>
-          </div>
+          
+           <div class="field">
+     <%= form.text_field :name, :placeholder => "名前"  %>
+           </div>
+           <textarea class="textarea-large" placeholder="コメント">
+     <%= chat.content %>
+     </textarea>
+     <div class="field">
+     <%= form.label "画像をアップロード" %><br><%= form.file_field :image %></br>
+     </div>
           
         </div>
         <div class="modal-footer actions">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= form.submit %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+          <%= form.submit "投稿する" %>
         </div>
       <% end %>
     </div>
