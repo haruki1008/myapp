@@ -1,12 +1,13 @@
-// Rails @status => true formの内容消去、要素の追加 : false モーダルを再度表示
-<% if @status %>
-// formを空にする / formにフォーカスする
-$('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form [name="chat[content]"]').val("")
-$('[data-model_name="chat"]').filter('[data-id="<%= @room.id %>"]').find('form [name="chat[content]"]').eq(0).focus();
+// モーダルを閉じる処理
+$("#roomModal").modal("hide");
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
 
-// 順序が入れ替わるため、todosを描画しなおす
+// Rails @status => true 画面の書き換え : false モーダルを再度表示
+<% if @status %>
 $('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find(".chat-cards").html("<%= j(render partial: 'chats/chat', collection: @room.chats, as: :chat) %>");
 
 <% else %>
-$('[data-model_name="room"]').filter('[data-id="<%= @room.id %>"]').find('form [name="chat[content]"]').eq(0).focus();
+$("#modalArea").html("<%= j(render 'modal_form', room: @room, chat: @chat) %>")
+$("#modalArea").find(".modal").modal('show')
 <% end %>
