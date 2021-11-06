@@ -46,7 +46,7 @@ class RoomsController < ApplicationController
   def show
     @chat = @room.chats.new
     
-end
+  end
 
   private
    

@@ -26,9 +26,9 @@ class TagsController < ApplicationController
     
       if @tag.save
       @status = true
-    else
+      else
       @status = false
-    end
+      end
   end
   
 
