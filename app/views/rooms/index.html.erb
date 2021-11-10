@@ -1,12 +1,13 @@
 <div class="room-title-area px-3">
   <h1>一覧</h1>
   <%= link_to new_room_path, title: "New", class: "btn p-0 text-dark", remote: true do %>
-    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle">ルーム作成</span>
+    <i class="fas fa-plus align-middle pr-1"></i><span class="align-middle pb-2">ルーム作成</span>
   <% end %>
 </div>
 
 <div class="pt-3 p-1 text-nowrap room-index-area" id="roomsIndex">
    <%= render @rooms %>
 </div>
+<%= paginate @rooms %>
 
 

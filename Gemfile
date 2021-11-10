@@ -75,4 +75,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
  end
  gem 'font-awesome-sass'
+ gem 'kaminari'
  

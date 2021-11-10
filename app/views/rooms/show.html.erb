@@ -7,7 +7,7 @@ data-id="<%= @room.id %>">
 		<h2 class="text-wrap show-roomtitle-name">
 			<%= @room.title %>
 		</h2>
-		<div>
+		<div class="w-75 text-nowrap overflow-hidden">
 		<%= render partial: "rooms/tag", collection: @room.tags, as: :tag %>
 		</div>
 		</div>

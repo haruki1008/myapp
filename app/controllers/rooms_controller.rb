@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @rooms = Room.all
+    @rooms = Room.all.page(params[:page]).per(10)
   end
 
 
@@ -44,7 +44,7 @@ class RoomsController < ApplicationController
   end
   
   def show
-    @chat = @room.chats.new
+   
     
   end
 

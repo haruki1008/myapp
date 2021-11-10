@@ -35,3 +35,31 @@ footer {
     line-height: 1.5em;
     max-height: 4.5em;
 }
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination > li > a {
+  border: none;
+  color: #999;
+}
+.pagination > li > a:hover {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a {
+  color: turquoise;
+  background-color: white;
+}
+.pagination > .active > a:hover {
+  background-color: white;
+  color: turquoise;
+}
+/* --ページネーション */
+.field2{
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+  background-color: #99FF99;
+}

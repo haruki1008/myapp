@@ -3,7 +3,7 @@
   data-id="<%= room.id %>">
   <div class="d-flex flex-column h-100" style="width: 85%; min-width: 25rem;">
     <div class="font-weight-bold px-4 pt-2 room-header">
-      <h2 class="text-nowrap roomtitle-name">
+      <h2 class="text-nowrap roomtitle-name" style="height: 2.5rem;">
         <%= room.title %>
       </h2>
       <div class="text-right position-absolute" style="top: 4px; right: 4px">
@@ -12,13 +12,17 @@
             <div  style="height: 65px">
            
             <%= link_to "", "https://twitter.com/share?url=#{request.url}/&text=ゲーム攻略 &hashtags=攻略,募集",class: "fab fa-twitter fa-2x", title: 'Twitter', target: '_blank' %>
+             <small class="text-muted">
+             <br><%= room.created_at.to_s(:datetime_jp_room) %></br>
+             </small>
             </div>
           </div>
           </div>
        
-      <div class="mb-1 ml-2 text-nowrap overflow-auto" style="height: 50px;">
+      <div class="mb-1 ml-2 text-nowrap overflow-auto">
          <%= render partial: "rooms/tag", collection: room.tags, as: :tag %>
       </div>
+      
       
       </div>
     </div>
