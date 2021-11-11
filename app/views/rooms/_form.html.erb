@@ -28,7 +28,7 @@
   <% end %>
   
           </div>
-          <div class="field2" style="height: 15rem;">
+          <div class="roomform_tag mx-1">
            <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name do |b| %>
              <%= b.label(class: "form-check") do %>
                <%= b.check_box(class: "form-check-input") %>
@@ -40,8 +40,8 @@
          </div>
         </div>
         <div class="modal-footer actions">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= form.submit %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+          <%= form.submit "部屋を作る" %>
         </div>
       <% end %>
     </div>
